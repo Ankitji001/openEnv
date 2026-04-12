@@ -64,33 +64,31 @@ def grade_hard_step(action: Action, ground_truth: dict, processed_ids: set) -> R
 
 
 # ---------------- EVAL GRADERS (USED BY PHASE 2) ----------------
-def grade_easy_eval(action, ground_truth) -> float:
-    import json
 
-    try:
-        if hasattr(action, "model_dump"): action = action.model_dump()
-        elif hasattr(action, "dict"): action = action.dict()
-        if isinstance(action, str):
-            action = json.loads(action)
-        if not isinstance(action, dict):
-            return 0.01
+def grade_medium(action: Action, ground_truth: dict) -> Reward:
+    score = 0.01
+    reasons = []
 
-        if hasattr(ground_truth, "model_dump"): ground_truth = ground_truth.model_dump()
-        elif hasattr(ground_truth, "dict"): ground_truth = ground_truth.dict()
-        if not isinstance(ground_truth, dict):
-            ground_truth = {}
+    if action.classification and action.classification.lower() == str(ground_truth.get("classification", "")).lower():
+        score = min(score + 0.4, 0.99)
+        reasons.append("Correct classification.")
+    else:
+        reasons.append("Incorrect classification.")
 
-        act = str(action.get("classification") or "")
-        gt = str(ground_truth.get("classification") or "")
+    if action.priority and action.priority.lower() == str(ground_truth.get("priority", "")).lower():
+        score = min(score + 0.3, 0.99)
+        reasons.append("Correct priority.")
+    else:
+        reasons.append("Incorrect priority.")
 
-        if not act:
-            return 0.01
+    if action.action_choice and action.action_choice.lower() == str(ground_truth.get("action_choice", "")).lower():
+        score = min(score + 0.3, 0.99)
+        reasons.append("Correct action.")
+    else:
+        reasons.append("Incorrect action.")
 
-        score = 0.99 if act.lower() == gt.lower() else 0.01
-        return _safe_score(score)
+    return Reward(value=_safe_score(score), reason=" ".join(reasons))
 
-    except:
-        return 0.01
 
 
 def grade_medium_eval(action, ground_truth) -> float:
