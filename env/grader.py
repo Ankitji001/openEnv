@@ -109,16 +109,16 @@ def grade_medium_eval(action, ground_truth) -> float:
         if not isinstance(ground_truth, dict):
             ground_truth = {}
 
-        score = 0.01  # 🔥 never 0
+        score = 0.01
 
         if str(action.get("classification") or "").lower() == str(ground_truth.get("classification") or "").lower():
-            score += 0.4
+            score = min(score + 0.4, 0.99)
 
         if str(action.get("priority") or "").lower() == str(ground_truth.get("priority") or "").lower():
-            score += 0.3
+            score = min(score + 0.3, 0.99)
 
         if str(action.get("action_choice") or "").lower() == str(ground_truth.get("action_choice") or "").lower():
-            score += 0.3
+            score = min(score + 0.3, 0.99)
 
         return _safe_score(score)
 
