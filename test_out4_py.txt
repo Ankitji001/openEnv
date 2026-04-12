@@ -1,0 +1,9 @@
+    @abstractmethod
+    def reset(
+        self,
+        seed: Optional[int] = None,
+        episode_id: Optional[str] = None,
+        **kwargs: Any,
+    ) -> ObsT:
+        """Reset the environment and return initial observation."""
+        pass

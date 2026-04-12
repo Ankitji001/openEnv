@@ -1,0 +1,12 @@
+[PASS] easy_perfect_dict = 0.99 (type=float)
+[PASS] medium_perfect_dict = 0.99 (type=float)
+[PASS] hard_perfect_dict = 0.99 (type=float)
+[PASS] easy_wrong_dict = 0.01 (type=float)
+[PASS] medium_wrong_dict = 0.01 (type=float)
+[PASS] easy_empty_dict = 0.01 (type=float)
+[PASS] medium_empty_dict = 0.01 (type=float)
+[PASS] easy_json_string = 0.99 (type=float)
+[PASS] medium_json_string = 0.99 (type=float)
+[PASS] easy_none = 0.01 (type=float)
+
+OVERALL: ALL PASS

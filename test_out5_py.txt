@@ -1,0 +1,9 @@
+    @abstractmethod
+    def step(
+        self,
+        action: ActT,
+        timeout_s: Optional[float] = None,
+        **kwargs: Any,
+    ) -> ObsT:
+        """Take a step in the environment."""
+        pass

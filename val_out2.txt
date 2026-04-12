@@ -1,0 +1,6 @@
+OUT:
+[OK] email-triage-env: Ready for multi-mode deployment
+
+ERR:
+
+RC: 0

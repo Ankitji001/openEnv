@@ -1,0 +1,5 @@
+[START] task=email-triage env=openenv model=openai/gpt-oss-20b
+Error: HF_TOKEN is a mandatory environment variable.
+[END] success=false steps=0 rewards=
+
+ERR:

@@ -1,0 +1,21 @@
+[project]
+name = "email-triage-env"
+version = "0.1.0"
+description = "OpenEnv email triage RL environment"
+authors = [
+    {name = "Ankit Kumar"}
+]
+dependencies = [
+    "openenv-core",
+    "pydantic",
+    "openai",
+    "fastapi",
+    "uvicorn"
+]
+
+[project.scripts]
+server = "server.app:main"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

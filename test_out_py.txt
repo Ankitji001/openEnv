@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "D:\openenv\email-triage-env\test_fastapi.py", line 9, in <module>
+    app = create_fastapi_app(env, Action, Observation)
+  File "D:\openenv\email-triage-env\venv\Lib\site-packages\openenv\core\env_server\http_server.py", line 1638, in create_fastapi_app
+    server = HTTPEnvServer(
+        env,
+    ...<3 lines>...
+        concurrency_config=concurrency_config,
+    )
+  File "D:\openenv\email-triage-env\venv\Lib\site-packages\openenv\core\env_server\http_server.py", line 174, in __init__
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: env must be a callable (class or factory function), got <class 'env.environment.EmailTriageEnv'>. Pass the environment class (e.g., MyEnvironment) not an instance (e.g., MyEnvironment()).

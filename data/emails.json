@@ -1,0 +1,35 @@
+[
+    {
+        "id": "email_1",
+        "subject": "Win a free iPhone!",
+        "sender": "no-reply@spammy-site.com",
+        "body": "Click here to claim your prize now! Limited time offer.",
+        "ground_truth": {
+            "classification": "spam",
+            "priority": "low",
+            "action_choice": "ignore"
+        }
+    },
+    {
+        "id": "email_2",
+        "subject": "Server Down Alert",
+        "sender": "alerts@infrastructure.com",
+        "body": "The main production server is unresponsive. PagerDuty alert triggered.",
+        "ground_truth": {
+            "classification": "urgent",
+            "priority": "high",
+            "action_choice": "escalate"
+        }
+    },
+    {
+        "id": "email_3",
+        "subject": "Weekly team meeting",
+        "sender": "manager@company.com",
+        "body": "Hey team, this week's meeting is pushed to Thursday.",
+        "ground_truth": {
+            "classification": "normal",
+            "priority": "medium",
+            "action_choice": "reply"
+        }
+    }
+]
