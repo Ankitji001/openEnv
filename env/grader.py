@@ -8,11 +8,7 @@ def _safe_score(score: float) -> float:
     except:
         return 0.01
 
-    if score <= 0:
-        return 0.01
-    if score >= 1:
-        return 0.99
-    return round(score, 2)
+    return max(0.01, min(0.99, round(score, 2)))
 
 
 # ---------------- TRAINING GRADERS (USED BY ENV) ----------------
